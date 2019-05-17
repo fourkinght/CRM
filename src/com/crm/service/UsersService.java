@@ -1,12 +1,10 @@
-﻿package com.crm.dao;
-
-import java.util.List;
+package com.crm.service;
 
 import com.crm.entity.Fenye;
 import com.crm.entity.Users;
 
-public interface UsersMapper {
-
+public interface UsersService {
+	
 	/**
 	 * 用户登录
 	 * @param ur
@@ -14,22 +12,16 @@ public interface UsersMapper {
 	 */
 	Users selectUsersLogin(Users users);
 	/**
-	 * 修改用户最后一次登录时间，密码错误次数，是否锁定
+	 * 修改用户最后一次登录时间，密码错误次数
 	 * @param time
 	 * @return
 	 */
 	Integer updateUsers(Users users);
 	/**
-	 * 查询全部用户
+	 * 多条件查询全部用户
 	 * @return
 	 */
-	List<Users> selectUsersAll(Fenye fenye);
-	/**
-	 * 查询总条数
-	 * @param fenye
-	 * @return
-	 */
-	Integer selectUsersCount(Fenye fenye);
+	Fenye selectUsersAll(Fenye fenye);
 	/**
 	 * 添加新用户
 	 * @param users
@@ -78,5 +70,5 @@ public interface UsersMapper {
 	 * @return
 	 */
 	Integer updateUsersByNameEmailMtel(Users users);
-
+	
 }

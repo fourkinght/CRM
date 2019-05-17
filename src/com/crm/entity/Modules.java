@@ -1,4 +1,4 @@
-package com.crm.entity;
+﻿package com.crm.entity;
 
 import org.springframework.stereotype.Component;
 
@@ -10,6 +10,7 @@ public class Modules {//(模块表
 	 private Integer ms_Weight;//权重
 	 private Integer ms_Ext1;//预留字段
 	 private String ms_Ext2;//预留字段
+	 private String ms_Ext2;//模块路径
 	public Integer getMs_Id() {
 		return ms_Id;
 	}

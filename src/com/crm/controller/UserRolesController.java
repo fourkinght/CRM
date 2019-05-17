@@ -1,4 +1,4 @@
-package com.crm.controller;
+﻿package com.crm.controller;
 
 
 import java.util.ArrayList;
@@ -21,6 +21,11 @@ import com.crm.entity.UserRoles;
 import com.crm.entity.Users;
 import com.crm.service.UserRolesService;
 
+
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.crm.entity.UserRoles;
+import com.crm.service.UserRolesService;
 
 @Controller
 public class UserRolesController {
@@ -65,4 +70,20 @@ public class UserRolesController {
 		
 		return ConsultantLabelsStart;
 	}
+
+	@RequestMapping(value="/insertUserRoles",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer insertUserRoles(UserRoles userRoles){
+		Integer insertUserRoles = userRolesService.insertUserRoles(userRoles);
+		return insertUserRoles;
+	}
+	
+	@RequestMapping(value="/deleteUserRoles",method=RequestMethod.POST)
+	@ResponseBody
+	public Integer deleteUserRoles(UserRoles userRoles){
+		Integer deleteUserRoles = userRolesService.deleteUserRoles(userRoles);
+		return deleteUserRoles;
+	}
+	
+
 }

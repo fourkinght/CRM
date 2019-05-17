@@ -1,4 +1,4 @@
-package com.crm.entity;
+﻿package com.crm.entity;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Fenye {
 	//鍒嗛〉鍙傛暟
+	//分页参数
 	private Integer total;
 	private Integer page;
 	private Integer pageSize;
@@ -196,6 +197,27 @@ public class Fenye {
 	}
 	public void setCur_RecordTimeMax(String cur_RecordTimeMax) {
 		Cur_RecordTimeMax = cur_RecordTimeMax;
+	//多条件搜索参数
+	private Clients clients;
+	private Users users;
+	private String Name;
+	private Integer minNumber;//最小值
+	private Integer maxNumber;//最大值
+	private String minTime;//最小日期
+	private String maxTime;//最大日期
+	
+	
+	public Users getUsers() {
+		return users;
+	}
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
 	}
 	public Integer getMinNumber() {
 		return minNumber;
@@ -244,6 +266,7 @@ public class Fenye {
 	}
 	public void setPage(Integer page) {
 		this.page =page;
+		this.page = (page-1)*pageSize;
 	}
 	public Integer getPageSize() {
 		return pageSize;

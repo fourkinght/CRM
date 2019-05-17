@@ -19,18 +19,18 @@
    		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
    </listener>
    
-   <!-- 配置Spring 前端控制器 -->
+   <!-- 配置Spring 前端控制�?-->
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		
-		<!-- 初始化 配置Spring mvc下的配置文件的位置和名称 -->
+		<!-- 初始�?配置Spring mvc下的配置文件的位置和名称 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
 		
-		<!--加载时机 服务器已启动就加载  启动级别为1，当Tomcat启动时，应用也随之启动 -->
+		<!--加载时机 服务器已启动就加�? 启动级别�?，当Tomcat启动时，应用也随之启�?-->
 		<load-on-startup>1</load-on-startup>
 		
 	</servlet>
@@ -38,7 +38,7 @@
  	<filter>
  		<filter-name>characterEncodingFilter</filter-name>
  		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
- 		<!-- 初始化 -->
+ 		<!-- 初始�?-->
  		<init-param>
  			<param-name>encoding</param-name>
  			<param-value>utf-8</param-value>
@@ -56,8 +56,44 @@
 	<!-- 拦截设置 -->
 	<servlet-mapping>
 		<servlet-name>dispatcherServlet</servlet-name>
-		<!-- 由SpringMVC拦截所有请求 -->
+		<!-- 由SpringMVC拦截所有请�?-->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
   
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext-*.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-mvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>

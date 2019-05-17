@@ -1,4 +1,4 @@
-package com.crm.entity;
+﻿package com.crm.entity;
 
 import org.springframework.stereotype.Component;
 
@@ -144,4 +144,7 @@ public class Users {//(用户表
 	}
 	
 	
+				+ us_ProtecMtel + ", us_Ext1=" + us_Ext1 + ", us_Ext2=" + us_Ext2 + "]";
+	}
+
 }
